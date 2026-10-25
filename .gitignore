@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+.parcel-cache
+bundle.html
+publish.html
