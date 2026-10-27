@@ -50,7 +50,7 @@ export default function App() {
 
   return (
     <>
-      <a className="skip" href="#work">
+      <a className="skip" href="#skills">
         Skip to content
       </a>
       <CursorGlow />
@@ -58,7 +58,8 @@ export default function App() {
       <main>
         <Hero />
         <Ticker />
-        <Projects />
+        {/* Work section commented out */}
+        {/* <Projects /> */}
         <Skills />
         <Journey />
         <Services />

@@ -29,8 +29,12 @@ export function createEngine(canvas, cb = {}) {
   let mode = 'idle'; // idle | playing | paused | over
   let raf = 0;
   let last = 0;
-  let muted = true;
+  let muted = false;
   let audio = null;
+  let musicGainNode = null;
+  let musicTimer = null;
+  let musicStep = 0;
+  let nextNoteTime = 0;
   const keys = { left: false, right: false };
 
   function fresh() {
@@ -53,15 +57,136 @@ export function createEngine(canvas, cb = {}) {
   const level = () => Math.min(8, s.score / 160);
   const multiplier = () => 1 + Math.min(3, Math.floor(s.combo / 5));
 
-  // ---------- audio ----------
+  // ---------- audio & chiptune music ----------
   function ensureAudio() {
-    if (audio || muted) return;
+    if (audio) return;
     try {
-      audio = new (window.AudioContext || window.webkitAudioContext)();
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      audio = new AudioCtx();
+      musicGainNode = audio.createGain();
+      musicGainNode.gain.setValueAtTime(muted ? 0 : 0.045, audio.currentTime);
+      const filter = audio.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(2600, audio.currentTime);
+      musicGainNode.connect(filter);
+      filter.connect(audio.destination);
     } catch {
       audio = null;
     }
   }
+
+  const BPM = 132;
+  const STEP_TIME = 60 / BPM / 2; // ~0.227s per 8th-note step
+
+  const BASS_NOTES = [
+    110.0, 110.0, 130.81, 164.81, 110.0, 110.0, 98.0, 82.41,
+    87.31, 87.31, 110.0, 130.81, 87.31, 87.31, 130.81, 82.41,
+    130.81, 130.81, 164.81, 196.0, 130.81, 130.81, 146.83, 164.81,
+    98.0, 98.0, 123.47, 146.83, 82.41, 103.83, 123.47, 146.83,
+  ];
+
+  const LEAD_NOTES = [
+    659.25, 0, 880.0, 0, 987.77, 0, 1046.5, 0,
+    987.77, 0, 880.0, 0, 783.99, 0, 659.25, 0,
+    783.99, 0, 880.0, 0, 1046.5, 0, 1174.66, 0,
+    987.77, 0, 783.99, 0, 659.25, 0, 830.61, 0,
+  ];
+
+  const ARP_NOTES = [
+    220.0, 261.63, 329.63, 261.63, 220.0, 261.63, 329.63, 261.63,
+    174.61, 220.0, 261.63, 220.0, 174.61, 220.0, 261.63, 220.0,
+    261.63, 329.63, 392.0, 329.63, 261.63, 329.63, 392.0, 329.63,
+    196.0, 246.94, 293.66, 246.94, 164.81, 207.65, 246.94, 207.65,
+  ];
+
+  function scheduleMusicStep(step, time) {
+    if (!audio || !musicGainNode || muted) return;
+
+    // Bassline
+    const bFreq = BASS_NOTES[step % BASS_NOTES.length];
+    if (bFreq > 0) {
+      const o = audio.createOscillator();
+      const g = audio.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(bFreq, time);
+      g.gain.setValueAtTime(0.5, time);
+      g.gain.exponentialRampToValueAtTime(0.001, time + STEP_TIME * 0.88);
+      o.connect(g);
+      g.connect(musicGainNode);
+      o.start(time);
+      o.stop(time + STEP_TIME);
+    }
+
+    // Arpeggio
+    const aFreq = ARP_NOTES[step % ARP_NOTES.length];
+    if (aFreq > 0) {
+      const o = audio.createOscillator();
+      const g = audio.createGain();
+      o.type = 'square';
+      o.frequency.setValueAtTime(aFreq, time);
+      g.gain.setValueAtTime(0.16, time);
+      g.gain.exponentialRampToValueAtTime(0.001, time + STEP_TIME * 0.55);
+      o.connect(g);
+      g.connect(musicGainNode);
+      o.start(time);
+      o.stop(time + STEP_TIME * 0.6);
+    }
+
+    // Melody lead
+    const lFreq = LEAD_NOTES[step % LEAD_NOTES.length];
+    if (lFreq > 0) {
+      const o = audio.createOscillator();
+      const g = audio.createGain();
+      o.type = 'square';
+      o.frequency.setValueAtTime(lFreq, time);
+      g.gain.setValueAtTime(0.24, time);
+      g.gain.exponentialRampToValueAtTime(0.001, time + STEP_TIME * 1.7);
+      o.connect(g);
+      g.connect(musicGainNode);
+      o.start(time);
+      o.stop(time + STEP_TIME * 1.75);
+    }
+
+    // Offbeat percussion tap
+    if (step % 2 === 1) {
+      const o = audio.createOscillator();
+      const g = audio.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(1400, time);
+      o.frequency.exponentialRampToValueAtTime(200, time + 0.025);
+      g.gain.setValueAtTime(0.18, time);
+      g.gain.exponentialRampToValueAtTime(0.001, time + 0.025);
+      o.connect(g);
+      g.connect(musicGainNode);
+      o.start(time);
+      o.stop(time + 0.03);
+    }
+  }
+
+  function startMusic() {
+    ensureAudio();
+    if (!audio) return;
+    if (audio.state === 'suspended') audio.resume();
+    stopMusic();
+    nextNoteTime = audio.currentTime + 0.04;
+    musicTimer = setInterval(() => {
+      if (mode !== 'playing') return;
+      while (nextNoteTime < audio.currentTime + 0.16) {
+        scheduleMusicStep(musicStep, nextNoteTime);
+        musicStep = (musicStep + 1) % 32;
+        nextNoteTime += STEP_TIME;
+      }
+    }, 30);
+  }
+
+  function stopMusic() {
+    if (musicTimer) {
+      clearInterval(musicTimer);
+      musicTimer = null;
+    }
+  }
+
   function tone(freq, dur, type = 'square', gain = 0.035, delay = 0, slideTo) {
     if (muted || !audio) return;
     try {
@@ -352,6 +477,7 @@ export function createEngine(canvas, cb = {}) {
   }
   function end() {
     cancelAnimationFrame(raf);
+    stopMusic();
     sfx.over();
     setMode('over');
     render();
@@ -363,6 +489,8 @@ export function createEngine(canvas, cb = {}) {
     s = fresh();
     ensureAudio();
     if (audio && audio.state === 'suspended') audio.resume();
+    musicStep = 0;
+    startMusic();
     cb.onScore && cb.onScore(0);
     cb.onLives && cb.onLives(3);
     cb.onCombo && cb.onCombo(0);
@@ -373,21 +501,32 @@ export function createEngine(canvas, cb = {}) {
   function pause() {
     if (mode !== 'playing') return;
     cancelAnimationFrame(raf);
+    stopMusic();
     setMode('paused');
     render();
   }
   function resume() {
     if (mode !== 'paused') return;
     setMode('playing');
+    startMusic();
     last = performance.now();
     raf = requestAnimationFrame(frame);
   }
   function setMuted(m) {
     muted = m;
+    if (musicGainNode && audio) {
+      musicGainNode.gain.setValueAtTime(m ? 0 : 0.045, audio.currentTime);
+    }
     if (!m) {
       ensureAudio();
       if (audio && audio.state === 'suspended') audio.resume();
-      tone(660, 0.08);
+      if (mode === 'playing') {
+        startMusic();
+      } else {
+        tone(660, 0.08);
+      }
+    } else {
+      stopMusic();
     }
   }
 
@@ -426,6 +565,7 @@ export function createEngine(canvas, cb = {}) {
     getMode: () => mode,
     destroy() {
       cancelAnimationFrame(raf);
+      stopMusic();
       canvas.removeEventListener('pointermove', onPointer);
       canvas.removeEventListener('pointerdown', onPointer);
       window.removeEventListener('keydown', onKeyDown);

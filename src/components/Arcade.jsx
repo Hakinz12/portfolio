@@ -51,6 +51,7 @@ export default function Arcade() {
               <span>React</span>
               <span>Canvas 2D</span>
               <span>Web Audio</span>
+              <span>Chiptune BGM</span>
               <span>No libraries</span>
             </div>
           </Reveal>

@@ -29,7 +29,7 @@ export default function Game() {
   const [combo, setCombo] = useState(0);
   const [best, setBest] = useState(bestRef.current);
   const [fresh, setFresh] = useState(false);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
     const eng = createEngine(canvas.current, {

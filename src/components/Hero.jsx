@@ -27,7 +27,7 @@ export default function Hero() {
             Exploring the edge of Web3, full-stack development, culture and AI.
           </p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#work">
+            <a className="btn btn-primary" href="#skills">
               EXPLORE MY WORK <span>↗</span>
             </a>
             <a className="btn btn-ghost" href="#contact">

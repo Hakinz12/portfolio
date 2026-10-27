@@ -3,7 +3,7 @@
 
 export const contact = {
   x: 'https://x.com/iam_hakinz03',
-  telegram: 'https://t.me/iam_hakinz',
+  telegram: 'https://t.me/iam_hakinzz',
   email: 'blaqhakinz12@gmail.com',
   resumeUrl: '', // TODO: optional, e.g. '/resume.pdf'. Leave empty to hide the button.
   // TODO: your Formspree endpoint, e.g. 'https://formspree.io/f/abcdwxyz'. While empty, the form opens the visitor's email app instead.
@@ -11,7 +11,7 @@ export const contact = {
 };
 
 export const navLinks = [
-  { id: 'work', label: 'WORK' },
+  // { id: 'work', label: 'WORK' },
   { id: 'skills', label: 'STACK' },
   { id: 'journey', label: 'JOURNEY' },
   { id: 'services', label: 'SERVICES' },
