@@ -15,9 +15,23 @@ export default function CommandPalette({ open, onClose, notify }) {
         run: () => scrollToId(l.id),
       })),
       { group: 'ACTIONS', label: 'Ask the AI assistant', run: () => window.dispatchEvent(new Event('bh:open-agent')) },
-      { group: 'ACTIONS', label: 'Copy email', run: async () => notify((await copyText(contact.email)) ? 'Email copied to clipboard' : contact.email) },
-      { group: 'ACTIONS', label: 'Open X / Twitter', run: () => window.open(contact.x, '_blank', 'noreferrer') },
-      { group: 'ACTIONS', label: 'Open Telegram', run: () => window.open(contact.telegram, '_blank', 'noreferrer') },
+      {
+        group: 'ACTIONS',
+        label: 'Send email',
+        run: () => {
+          window.location.href = `mailto:${contact.email}`;
+        },
+      },
+      {
+        group: 'ACTIONS',
+        label: 'Copy email',
+        run: async () => {
+          const ok = await copyText(contact.email);
+          notify(ok ? 'Email copied to clipboard' : `Email: ${contact.email}`);
+        },
+      },
+      { group: 'ACTIONS', label: 'Open X / Twitter', run: () => window.open(contact.x, '_blank', 'noopener,noreferrer') },
+      { group: 'ACTIONS', label: 'Open Telegram', run: () => window.open(contact.telegram, '_blank', 'noopener,noreferrer') },
       { group: 'ACTIONS', label: 'Back to top', run: () => scrollToId('top') },
     ],
     [notify]

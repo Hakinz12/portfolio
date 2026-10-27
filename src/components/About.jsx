@@ -2,10 +2,10 @@ import { contact, principles } from '../data/content.js';
 import Reveal from './Reveal.jsx';
 
 const idRows = [
-  ['ROLE', 'Web3 creative + developer'],
-  ['STUDYING', 'PGD Software Engineering'],
-  ['TEAM', 'BitAdvantage'],
-  ['FOCUS', 'Solana · full-stack · AI'],
+  ['ROLE', 'Web3 developer + AI creative'],
+  ['STUDYING', 'IRL Software Engineering'],
+  ['TEAM', '-'],
+  ['FOCUS', 'Full-stack · AI'],
   ['STATUS', 'Open to collaborations'],
 ];
 
@@ -40,7 +40,7 @@ export default function About() {
             <span>Creative by design.</span>
           </h2>
           <p>
-            I'm BlaqHakinz, a Web3 creative and developer exploring the intersection of internet culture,
+            I'm BlaqHakinz, a Developer and AI exploring the intersection of internet culture,
             community and emerging technology. I'm also a software engineering student, building full-stack
             apps and Solana tools alongside my creative work.
           </p>

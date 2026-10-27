@@ -125,6 +125,9 @@ export default function Contact({ notify, draft }) {
               note, or ask the assistant to start the enquiry for you.
             </p>
             <div className="contact-links">
+              <a href={`mailto:${contact.email}`}>
+                EMAIL ↗
+              </a>
               <button type="button" onClick={copyEmail}>
                 COPY EMAIL ⧉
               </button>

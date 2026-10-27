@@ -1,6 +1,6 @@
 // Offline answers built from the site's own content. Used when the AI server
 // is not reachable (static hosting, no API key, no network).
-import { bio, projects, skillGroups, services } from '../data/content.js';
+import { bio, projects, skillGroups, services, contact } from '../data/content.js';
 
 const group = (title) => skillGroups.find((g) => g.title === title);
 
@@ -10,6 +10,10 @@ export function localAnswer(input) {
 
   if (t.length <= 12 && /^(hi|hello|hey|yo|sup)\b/.test(t)) {
     return out('Hi! Ask about the projects, the tech stack, services or availability, or start a project enquiry.');
+  }
+
+  if (/\b(email|telegram|twitter|x\.com|social|socials|handle)\b/.test(t)) {
+    return out(`You can reach BlaqHakinz via email at ${contact.email}, Telegram at ${contact.telegram}, or X at ${contact.x}.`);
   }
 
   if (/\b(hire|hiring|collab\w*|quote|enquir\w*|inquir\w*|start a project|get started|work with|commission|get in touch|reach|contact)\b/.test(t)) {

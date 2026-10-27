@@ -2,9 +2,9 @@
 // Search for "TODO" to find the placeholders you should replace before deploying.
 
 export const contact = {
-  x: 'https://x.com/', // TODO: your X profile URL
-  telegram: 'https://t.me/', // TODO: your Telegram URL
-  email: 'hello@example.com', // TODO: your email
+  x: 'https://x.com/iam_hakinz03',
+  telegram: 'https://t.me/iam_hakinz',
+  email: 'blaqhakinz12@gmail.com',
   resumeUrl: '', // TODO: optional, e.g. '/resume.pdf'. Leave empty to hide the button.
   // TODO: your Formspree endpoint, e.g. 'https://formspree.io/f/abcdwxyz'. While empty, the form opens the visitor's email app instead.
   formEndpoint: '',

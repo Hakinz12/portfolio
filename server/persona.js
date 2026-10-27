@@ -1,6 +1,6 @@
 // Builds the assistant's system prompt from the same content the site renders,
 // so the agent never drifts from what the page says.
-import { bio, projects, skillGroups, journey, services } from '../src/data/content.js';
+import { bio, projects, skillGroups, journey, services, contact } from '../src/data/content.js';
 
 export function buildPersona() {
   const projectLines = projects.map((p) => {
@@ -38,5 +38,10 @@ Journey:
 ${journeyLines.join('\n')}
 
 Services:
-${serviceLines.join('\n')}`;
+${serviceLines.join('\n')}
+
+Contact & Socials:
+- Email: ${contact.email}
+- Telegram: ${contact.telegram}
+- X / Twitter: ${contact.x}`;
 }
