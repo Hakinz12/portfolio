@@ -7,7 +7,7 @@ export default function Skills() {
     <section id="skills" className="section skills">
       <div className="wrap">
         <SectionHead
-          no="03"
+          no="04"
           kicker="THE STACK"
           title="Tools I build with."
           desc="Code, chain, AI and culture. The mix is the point."

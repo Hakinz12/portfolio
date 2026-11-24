@@ -11,7 +11,7 @@ const idRows = [
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section about-section">
       <div className="wrap about-grid">
         <Reveal className="idcard">
           <div className="idcard-top">
@@ -31,7 +31,7 @@ export default function About() {
 
         <Reveal className="about-copy" delay={0.08}>
           <div className="sh-left">
-            <span className="sh-no">06</span>
+            <span className="sh-no">02</span>
             <div className="kicker">A LITTLE ABOUT ME</div>
           </div>
           <h2>

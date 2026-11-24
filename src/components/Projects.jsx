@@ -22,7 +22,7 @@ export default function Projects() {
     <section id="work" className="section">
       <div className="wrap">
         <SectionHead
-          no="02"
+          no="03"
           kicker="SELECTED WORK"
           title="Work that ships."
           desc="Creative campaigns, community work and full-stack builds. Open any card for the details."

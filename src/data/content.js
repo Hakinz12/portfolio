@@ -12,11 +12,10 @@ export const contact = {
 };
 
 export const navLinks = [
+  { id: 'about', label: 'ABOUT' },
   { id: 'work', label: 'WORK' },
   { id: 'skills', label: 'STACK' },
-  { id: 'journey', label: 'JOURNEY' },
   { id: 'services', label: 'SERVICES' },
-  { id: 'about', label: 'ABOUT' },
   { id: 'play', label: 'PLAY' },
   { id: 'contact', label: 'CONTACT' },
 ];
@@ -172,39 +171,6 @@ export const skillGroups = [
   {
     title: 'COMMUNITY',
     items: ['Engagement', 'Moderation', 'Growth', 'Human-first conversations'],
-  },
-];
-
-export const journey = [
-  {
-    when: 'NOW',
-    title: 'Building TradeAI and Timekeep',
-    org: 'Independent',
-    text: 'Shipping full-stack products and a Solana trading agent side by side with my studies.',
-  },
-  {
-    when: 'NOW',
-    title: 'Team member, BitAdvantage',
-    org: 'Web3 community engagement ecosystem',
-    text: 'Part of the team behind a Web3 community engagement ecosystem, including Telegram bots and token systems.',
-  },
-  {
-    when: 'NOW',
-    title: 'Post Graduate Diploma, Software Engineering',
-    org: 'Student',
-    text: 'Formalising the engineering side: web development, systems and computer science fundamentals.',
-  },
-  {
-    when: '2026',
-    title: 'Postcheck, Alpha Kingdom Hub, Jeanne Phil',
-    org: 'Independent',
-    text: 'Shipped an AI post-risk scanner and built Web3 launch sites for a signals community and a Solana memecoin.',
-  },
-  {
-    when: 'EARLIER',
-    title: 'Web3 creative and community work',
-    org: 'Bluzo, Zentrix Gaming, Hedge Energy, The Prophet',
-    text: 'Meme culture, campaign storytelling, content and promotion across Web3 projects.',
   },
 ];
 

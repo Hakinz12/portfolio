@@ -112,7 +112,7 @@ export default function Contact({ notify, draft }) {
         <Reveal className="contact-box">
           <div className="contact-left">
             <div className="sh-left">
-              <span className="sh-no">08</span>
+              <span className="sh-no">07</span>
               <div className="kicker">HAVE A GOOD ONE IN MIND?</div>
             </div>
             <h2>

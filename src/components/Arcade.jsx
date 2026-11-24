@@ -7,7 +7,7 @@ export default function Arcade() {
     <section id="play" className="section arcade">
       <div className="wrap">
         <SectionHead
-          no="07"
+          no="06"
           kicker="ARCADE"
           title="Catch the pump."
           desc="Take a quick break: catch green candles, dodge rugs and chase a high score. No signup needed."

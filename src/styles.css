@@ -96,6 +96,7 @@ h1 .accent{color:var(--lime)}
 /* ---------- generic section ---------- */
 .section{padding:116px 0;scroll-margin-top:var(--nav-h)}
 section[id]{scroll-margin-top:var(--nav-h)}
+.about-section{border-bottom:1px solid var(--line)}
 .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px}
 .sh-left{display:flex;align-items:flex-start;gap:18px}
 .sh-no{font:11px var(--mono);color:var(--dim);border:1px solid var(--line);padding:5px 7px;margin-top:2px}
@@ -133,7 +134,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .pcard-body{padding:22px 22px 22px;display:flex;flex-direction:column;flex:1;gap:8px}
 .pcard-body h3{font-size:22px;letter-spacing:-1px;font-weight:800}
 .pcard-kind{font:10px var(--mono);color:var(--dim);letter-spacing:.5px}
-.pcard-sum{color:var(--muted);font-size:13px;line-height:1.75;margin:6px 0 10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard-sum{color:var(--muted);font-size:13px;line-height:1.75;margin:6px 0 10px;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pcard-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .pcard-open{font:10px var(--mono);color:var(--c);white-space:nowrap;letter-spacing:1px}
 .theme-purple{--c:var(--purple);--tint:rgba(160,123,255,.2)}

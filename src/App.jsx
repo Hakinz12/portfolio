@@ -7,7 +7,6 @@ import Hero from './components/Hero.jsx';
 import Ticker from './components/Ticker.jsx';
 import Projects from './components/Projects.jsx';
 import Skills from './components/Skills.jsx';
-import Journey from './components/Journey.jsx';
 import Services from './components/Services.jsx';
 import About from './components/About.jsx';
 import Arcade from './components/Arcade.jsx';
@@ -50,7 +49,7 @@ export default function App() {
 
   return (
     <>
-      <a className="skip" href="#skills">
+      <a className="skip" href="#about">
         Skip to content
       </a>
       <CursorGlow />
@@ -58,11 +57,10 @@ export default function App() {
       <main>
         <Hero />
         <Ticker />
+        <About />
         <Projects />
         <Skills />
-        <Journey />
         <Services />
-        <About />
         <Arcade />
         <Contact notify={notify} draft={draft} />
       </main>
