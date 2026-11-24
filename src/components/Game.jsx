@@ -142,15 +142,19 @@ export default function Game() {
           />
 
           {mode !== 'playing' && (
-            <div className="g-overlay">
+            <div className={`g-overlay ${mode === 'idle' ? 'g-overlay-idle' : ''}`}>
               {mode === 'idle' && (
                 <>
-                  <span className="g-tag">READY</span>
+                  <span className="g-tag">QUICK ARCADE CHALLENGE</span>
                   <h3>Catch the pump.</h3>
-                  <p>Candles and coins up, rugs down.</p>
-                  <button className="btn btn-primary" onClick={start}>
-                    START <span>↗</span>
+                  <p>
+                    {best > 0 ? `Your best is ${best}. Can you beat it?` : 'You have 3 lives. Set the first high score.'}
+                  </p>
+                  <button className="btn btn-primary g-start-btn" onClick={start} aria-label="Start Catch the Pump">
+                    <span className="g-play-icon" aria-hidden="true">▶</span>
+                    START PLAYING <span>↗</span>
                   </button>
+                  <span className="g-start-note">NO SIGNUP · BEST SCORE SAVED HERE</span>
                 </>
               )}
               {mode === 'paused' && (

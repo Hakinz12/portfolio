@@ -277,9 +277,17 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .g-canvas{display:block;width:100%;height:auto;aspect-ratio:3/4;background:var(--bg);touch-action:pan-y;cursor:crosshair}
 .g-stage.playing .g-canvas{touch-action:none}
 .g-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:12px;padding:28px;background:linear-gradient(180deg,rgba(9,9,12,.2),rgba(9,9,12,.92) 70%);animation:fade .25s}
+.g-overlay.g-overlay-idle{align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 70%,rgba(198,255,98,.13),transparent 62%),linear-gradient(180deg,rgba(9,9,12,.4),rgba(9,9,12,.94))}
 .g-overlay h3{font-size:clamp(34px,6vw,46px);letter-spacing:-2px;line-height:1;font-weight:800}
 .g-overlay p{color:var(--muted);font-size:14px}
 .g-overlay .btn{margin-top:8px;cursor:pointer}
+.g-overlay-idle h3{font-size:clamp(30px,5vw,38px);letter-spacing:-1.5px}
+.g-overlay-idle p{max-width:250px;line-height:1.6}
+.g-overlay-idle .g-tag{background:rgba(198,255,98,.08)}
+.g-start-btn{width:min(100%,240px);justify-content:center;box-shadow:0 0 0 4px rgba(198,255,98,.08);animation:gameCtaGlow 2.4s ease-in-out infinite}
+.g-start-btn:hover{animation:none}
+.g-play-icon{font-size:11px}
+.g-start-note{font:9px var(--mono);letter-spacing:.8px;color:var(--dim)}
 .g-tag{font:10px var(--mono);letter-spacing:2px;color:var(--lime);border:1px solid rgba(198,255,98,.4);padding:5px 8px}
 .g-tag.bad{color:var(--coral);border-color:rgba(255,122,107,.5)}
 .g-final{font:500 64px/1 var(--mono);letter-spacing:-3px;color:var(--lime)}
@@ -315,6 +323,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:#777480;font:10px v
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes typeline{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes gameCtaGlow{0%,100%{box-shadow:0 0 0 4px rgba(198,255,98,.08)}50%{box-shadow:0 0 0 7px rgba(198,255,98,.04),0 0 26px rgba(198,255,98,.22)}}
 
 /* ---------- responsive ---------- */
 @media(max-width:1000px){

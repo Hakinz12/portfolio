@@ -10,7 +10,7 @@ export default function Arcade() {
           no="07"
           kicker="ARCADE"
           title="Catch the pump."
-          desc="A tiny game I built for this site with React and a canvas. Beat your best score."
+          desc="Take a quick break: catch green candles, dodge rugs and chase a high score. No signup needed."
         />
         <div className="arcade-grid">
           <Reveal className="g-info">
