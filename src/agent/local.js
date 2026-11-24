@@ -12,8 +12,8 @@ export function localAnswer(input) {
     return out('Hi! Ask about the projects, the tech stack, services or availability, or start a project enquiry.');
   }
 
-  if (/\b(email|telegram|twitter|x\.com|social|socials|handle)\b/.test(t)) {
-    return out(`You can reach BlaqHakinz via email at ${contact.email}, Telegram at ${contact.telegram}, or X at ${contact.x}.`);
+  if (/\b(email|telegram|twitter|x\.com|github|social|socials|handle)\b/.test(t)) {
+    return out(`You can reach BlaqHakinz via email at ${contact.email}, Telegram at ${contact.telegram}, X at ${contact.x}, or GitHub at ${contact.github}.`);
   }
 
   if (/\b(hire|hiring|collab\w*|quote|enquir\w*|inquir\w*|start a project|get started|work with|commission|get in touch|reach|contact)\b/.test(t)) {

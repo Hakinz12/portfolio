@@ -39,7 +39,7 @@ emails typed during an enquiry are never sent to the AI.
 ## Edit your content
 
 Everything lives in `src/data/content.js`. Search for `TODO` to find what to replace:
-X, Telegram and email links, `formEndpoint`, and live-demo or GitHub links for each project.
+X, Telegram, GitHub and email links, `formEndpoint`, and live-demo or GitHub links for each project.
 
 ## Deploy
 

@@ -4,6 +4,7 @@
 export const contact = {
   x: 'https://x.com/iam_hakinz03',
   telegram: 'https://t.me/iam_hakinzz',
+  github: 'https://github.com/Hakinz12',
   email: 'blaqhakinz12@gmail.com',
   resumeUrl: '', // TODO: optional, e.g. '/resume.pdf'. Leave empty to hide the button.
   // TODO: your Formspree endpoint, e.g. 'https://formspree.io/f/abcdwxyz'. While empty, the form opens the visitor's email app instead.
@@ -11,7 +12,7 @@ export const contact = {
 };
 
 export const navLinks = [
-  // { id: 'work', label: 'WORK' },
+  { id: 'work', label: 'WORK' },
   { id: 'skills', label: 'STACK' },
   { id: 'journey', label: 'JOURNEY' },
   { id: 'services', label: 'SERVICES' },
@@ -43,94 +44,86 @@ export const tickerItems = [
 // NOTE: the case-study text below is drafted from each project's focus. Edit it to match your real work.
 export const projects = [
   {
-    id: 'bluzo',
-    title: 'Bluzo',
-    word: 'BLUZO',
-    category: 'creative',
-    kind: 'MEME CULTURE · CREATIVE CONCEPTS',
-    theme: 'purple',
-    featured: true,
-    summary:
-      'Meme-driven creative concepts that give a project a recognisable, internet-native voice.',
-    highlights: [
-      'Meme and visual concepts built to be shared',
-      'A consistent tone across posts and replies',
-      'Content shaped around the project’s identity',
-    ],
-    tags: ['Memes', 'Visual concepts', 'Social content'],
-    links: [],
-  },
-  {
-    id: 'zentrix',
-    title: 'Zentrix Gaming',
-    word: 'ZENTRIX',
-    category: 'creative',
-    kind: 'WEB3 GAMING · CONTENT & PROMOTION',
-    theme: 'lime',
-    summary:
-      'Content and promotion for a Web3 gaming project, from social posts to campaign pushes.',
-    highlights: [
-      'Gaming-focused content and promotion',
-      'Campaign ideas for community growth',
-      'Messaging that fits the game’s world',
-    ],
-    tags: ['Web3 gaming', 'Promotion', 'Content'],
-    links: [],
-  },
-  {
-    id: 'hedge',
-    title: 'Hedge Energy',
-    word: 'HEDGE',
-    category: 'creative',
-    kind: 'SOLANA · CAMPAIGN STORYTELLING',
-    theme: 'coral',
-    summary:
-      'Narrative-led campaign content on Solana that turns a project into a story people follow.',
-    highlights: [
-      'Campaign storytelling for a Solana project',
-      'Clear messaging for a technical audience',
-      'Content built around one central idea',
-    ],
-    tags: ['Solana', 'Storytelling', 'Campaigns'],
-    links: [],
-  },
-  {
-    id: 'prophet',
-    title: 'The Prophet',
-    word: 'PROPHET',
-    category: 'creative',
-    kind: 'COMMUNITY · SOCIAL CONTENT',
-    theme: 'cyan',
-    summary:
-      'Community-first social content designed to keep members engaged and talking.',
-    highlights: [
-      'Community engagement and conversation',
-      'Social content with a human voice',
-      'Moderation-friendly, welcoming tone',
-    ],
-    tags: ['Community', 'Social', 'Engagement'],
-    links: [],
-  },
-  {
-    id: 'timekeep',
-    title: 'Timekeep',
-    word: 'TIMEKEEP',
+    id: 'orhex',
+    title: 'Orhex-OS',
+    word: 'ORHEX',
     category: 'dev',
-    kind: 'FULL-STACK · TASK REMINDER APP',
+    kind: 'HACKATHON · WALRUS PROJECT',
+    theme: 'cyan',
+    status: 'COMPLETED',
+    summary:
+      'A Walrus hackathon project exploring a lightweight operating-system-style product with a separate MVP implementation.',
+    highlights: [
+      'Built for the Walrus hackathon',
+      'Full project and MVP variants',
+      'Python-based implementation',
+    ],
+    tags: ['Python', 'Walrus', 'Hackathon'],
+    links: [
+      { label: 'Live demo', href: 'https://orhexos.vercel.app' },
+      { label: 'GitHub', href: 'https://github.com/Hakinz12/orhex-OS' },
+    ],
+  },
+  {
+    id: 'uniskillfy',
+    title: 'Uniskill',
+    word: 'UNISKILL',
+    category: 'dev',
+    kind: 'STUDENT MARKETPLACE · SKILL EXCHANGE',
     theme: 'lime',
-    featured: true,
+    status: 'COMPLETED',
+    summary:
+      'A peer-to-peer student skills marketplace where classmates trade knowledge, schedule sessions and leave ratings instead of paying for tutors.',
+    highlights: [
+      'Student-to-student skill matching',
+      'Requests, scheduling and ratings',
+      'Web app built for a campus community',
+    ],
+    tags: ['JavaScript', 'Marketplace', 'Student platform'],
+    links: [
+      { label: 'Live demo', href: 'https://uniskillfy.vercel.app' },
+      { label: 'GitHub', href: 'https://github.com/Hakinz12/uniskillfy' },
+    ],
+  },
+  {
+    id: 'tradeai',
+    title: 'Trade AI',
+    word: 'TRADEAI',
+    category: 'dev',
+    kind: 'SOLANA · AUTO-TRADING AGENT',
+    theme: 'coral',
     status: 'IN PROGRESS',
     summary:
-      'A full-stack task reminder app with multi-user auth, a custom SVG time-ring that shows urgency at a glance, and a Web Audio alarm when a task is due.',
+      'A Solana auto-trading agent with a web dashboard. The current version uses paper trading to test strategies without placing real orders.',
     highlights: [
-      'JWT auth with bcrypt-hashed passwords, tasks scoped per user',
-      'Full task CRUD with categories, tags and priority levels',
-      'Overdue / Today / Upcoming / Done buckets',
-      'Browser notifications plus a Web Audio two-tone alarm',
-      '15-second polling with a notified flag to stop duplicate alarms',
+      'Paper trading to test strategies without real orders',
+      'Dashboard to monitor the agent',
+      'Built for the Solana ecosystem',
     ],
-    tags: ['React', 'Vite', 'Tailwind', 'Node', 'Express', 'Prisma', 'JWT'],
-    links: [], // TODO: add { label: 'Live demo', href: '...' } and { label: 'GitHub', href: '...' }
+    tags: ['Solana', 'AI agent', 'Web dashboard'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/Hakinz12/TradeAI' },
+    ],
+  },
+  {
+    id: 'telegram-ai-bot',
+    title: 'AI Bot',
+    word: 'AI BOT',
+    category: 'dev',
+    kind: 'PYTHON · TELEGRAM AI TOOL',
+    theme: 'purple',
+    status: 'COMPLETED',
+    summary:
+      'A Python Telegram bot project that connects AI workflows to conversations and community interactions.',
+    highlights: [
+      'Telegram bot integration',
+      'Python implementation',
+      'Designed for community and automation use cases',
+    ],
+    tags: ['Python', 'Telegram', 'AI'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/Hakinz12/telegram-ai-bot' },
+    ],
   },
   {
     id: 'postcheck',
@@ -149,60 +142,9 @@ export const projects = [
       'Full suggested rewrites, no account needed',
     ],
     tags: ['React', 'Node', 'Express', 'Gemini API'],
-    links: [], // TODO: add live demo / GitHub
-  },
-  {
-    id: 'tradeai',
-    title: 'TradeAI',
-    word: 'TRADEAI',
-    category: 'dev',
-    kind: 'SOLANA · AUTO-TRADING AGENT',
-    theme: 'coral',
-    featured: true,
-    status: 'IN PROGRESS',
-    summary:
-      'A Solana degen auto-trading agent. It starts in paper-trading mode so strategies can be tested safely, with a web dashboard to control and monitor it.',
-    highlights: [
-      'Paper trading first, so strategies are tested without real funds',
-      'Web dashboard to control and monitor the agent',
-      'Built for the fast-moving Solana memecoin market',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/Hakinz12/Postcheck' },
     ],
-    tags: ['Solana', 'AI agent', 'Web dashboard'],
-    links: [], // TODO: add GitHub / write-up
-  },
-  {
-    id: 'alpha-kingdom',
-    title: 'Alpha Kingdom Hub',
-    word: 'ALPHA',
-    category: 'dev',
-    kind: 'WEB3 LANDING PAGE · COMMUNITY HUB',
-    theme: 'purple',
-    summary:
-      'A Web3 marketing landing page for a crypto signals and community hub, built around a mega launch event.',
-    highlights: [
-      'Landing page for a crypto signals community',
-      'Designed around a launch-event moment',
-      'Clear calls to action to join the community',
-    ],
-    tags: ['Landing page', 'Web3 marketing', 'Launch event'],
-    links: [], // TODO: add live site
-  },
-  {
-    id: 'jeanne-phil',
-    title: 'Jeanne Phil',
-    word: 'JEANNE',
-    category: 'dev',
-    kind: 'SOLANA MEMECOIN · WEBSITE',
-    theme: 'gold',
-    summary:
-      'The website for $JEANNEPHIL, a Solana memecoin with a pink, black and gold boxer-glam identity, built for its September 2026 launch.',
-    highlights: [
-      'Distinct pink, black and gold boxer-glam branding',
-      'Built for a launch-day audience',
-      'Memecoin site with a strong, playful personality',
-    ],
-    tags: ['Solana', 'Memecoin', 'Branding', 'Website'],
-    links: [], // TODO: add live site
   },
 ];
 

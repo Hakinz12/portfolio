@@ -14,6 +14,9 @@ export default function Footer() {
           <a href={contact.telegram} target="_blank" rel="noreferrer">
             TELEGRAM
           </a>
+          <a href={contact.github} target="_blank" rel="noreferrer">
+            GITHUB
+          </a>
           <a href={`mailto:${contact.email}`}>EMAIL</a>
         </span>
         <span>© {new Date().getFullYear()} · ALL IDEAS IN MOTION.</span>

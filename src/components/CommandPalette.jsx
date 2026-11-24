@@ -32,6 +32,7 @@ export default function CommandPalette({ open, onClose, notify }) {
       },
       { group: 'ACTIONS', label: 'Open X / Twitter', run: () => window.open(contact.x, '_blank', 'noopener,noreferrer') },
       { group: 'ACTIONS', label: 'Open Telegram', run: () => window.open(contact.telegram, '_blank', 'noopener,noreferrer') },
+      { group: 'ACTIONS', label: 'Open GitHub', run: () => window.open(contact.github, '_blank', 'noopener,noreferrer') },
       { group: 'ACTIONS', label: 'Back to top', run: () => scrollToId('top') },
     ],
     [notify]

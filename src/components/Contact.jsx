@@ -137,6 +137,9 @@ export default function Contact({ notify, draft }) {
               <a href={contact.telegram} target="_blank" rel="noreferrer">
                 TELEGRAM ↗
               </a>
+              <a href={contact.github} target="_blank" rel="noreferrer">
+                GITHUB ↗
+              </a>
             </div>
           </div>
 

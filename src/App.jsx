@@ -58,8 +58,7 @@ export default function App() {
       <main>
         <Hero />
         <Ticker />
-        {/* Work section commented out */}
-        {/* <Projects /> */}
+        <Projects />
         <Skills />
         <Journey />
         <Services />
