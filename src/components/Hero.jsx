@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="hero-bg" aria-hidden="true" />
       <div className="wrap hero-inner">
         <div className="hero-content">
-          <div className="eyebrow">WEB3 CREATIVE / DEVELOPER / AI</div>
+          <div className="eyebrow">WEB3 CREATIVE / DEVELOPER / AI ENGINEER</div>
           <h1>
             I CREATE.
             <br />
